@@ -24,7 +24,7 @@
 <script lang="ts">
     import {Component, Vue} from "vue-property-decorator";
     import {client} from "@/services/shopify-client";
-    import ProductSlider from './../components/ProductSlider'
+    import ProductSlider from './../components/ProductSlider.vue'
 
     @Component({
         components: {
