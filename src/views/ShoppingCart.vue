@@ -3,7 +3,7 @@
         <div v-if="products">
             <ShoppingCartItem v-for="product in products" :product="product" :key="product.id"></ShoppingCartItem>
         </div>
-        <div>
+        <div class="price-wrapper">
             <div><span class="label">Sub-Total ({{products.length}} items): </span>US ${{totalPrice}}</div>
             <div><span class="label">Shipping cost: </span>US $0</div>
             <div><span class="label">All Total: </span>US ${{totalPrice}}</div>
@@ -45,7 +45,8 @@
         border: 1px solid;
         box-shadow: 0.5px 0.5px;
         width: 80px;
-        height: 20px;
         cursor: pointer;
-	}
+        margin-top: 5px;
+    }
+    
 </style>
