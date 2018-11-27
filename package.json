@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@types/shopify-buy": "^1.4.2",
+    "bootstrap": "^4.1.3",
+    "bootstrap-vue": "^2.0.0-rc.11",
     "shopify-buy": "^1.9.1",
     "vue": "^2.5.17",
     "vue-class-component": "^6.0.0",
