@@ -16,11 +16,15 @@ export default class Product extends Vue {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   @Prop() private info: Object;
 
   goToProduct() {
     this.$router.push({ name: "item", params: { id: this.info.id } });
   }
+=======
+  @Prop() private info!: Object;
+>>>>>>> Stashed changes
 =======
   @Prop() private info!: Object;
 >>>>>>> Stashed changes
