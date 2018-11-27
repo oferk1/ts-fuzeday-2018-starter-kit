@@ -14,7 +14,7 @@
                 Buy Now!
             </button>
 
-            <button class="btn btn-primary" @click="buy()">
+            <button class="btn btn-primary" @click="cart()">
                 Go To Cart!
             </button>
         </div>
@@ -43,8 +43,12 @@
             console.log(this.product);
         }
 
-        gotoCart() {
-
+        cart() {
+            this
+                .$router
+                .push({
+                    name: 'cart',
+                })
         }
 
         fetchProduct() {

@@ -2,7 +2,9 @@
     <div>
         <button @click="nextPage()">Next</button>
         <div class="gallery">
-            <Product @(click)="gotoProduct(product.id)" v-for="product in products" :key="product.id" :info="product"/>
+            <a @click="gotoProduct(product.id)" v-for="product in products" >
+                <Product :key="product.id" :info="product"/>
+            </a>
         </div>
     </div>
 </template>
@@ -51,6 +53,14 @@
         }
 
         gotoProduct(id: string) {
+            this
+                .$router
+                .push({
+                    name: 'item',
+                    params: {
+                        id: id
+                    }
+                })
         }
     }
 </script>
