@@ -1,20 +1,40 @@
 <template>
   <div class="gallery">
-    <Item v-for="item in items" :key="item" :msg="item"/>
+    <Product v-for="product in products" :key="product.id" :info="product"/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Item from "@/components/Item.vue"; // @ is an alias to /src
+import Product from "@/components/Product.vue"; // @ is an alias to /src
+import { client } from "@/services/shopify-client";
 
 @Component({
   components: {
-    Item
+    Product
   }
 })
 export default class Gallery extends Vue {
-  items: string[] = ["test1", "test2", "test3", "test4"];
+  data() {
+    return {
+      products: []
+    };
+  }
+
+  created() {
+    client.product.fetchAll().then(response => {
+      console.log(response);
+      this.products = response.map(product => {
+        return {
+          id: product.id,
+          title: product.title,
+          description: product.description,
+          price: product.variants[0].price,
+          image: product.images[0].src
+        };
+      });
+    });
+  }
 }
 </script>
 
