@@ -36,7 +36,7 @@
         }
     })
     export default class Product extends Vue {
-        @Prop() private images: any[];
+        @Prop() private images!: any[];
     }
 </script>
 

@@ -14,7 +14,7 @@
                 Buy Now!
             </button>
 
-            <button class="btn btn-primary" @click="buy()">
+            <button class="btn btn-primary" @click="cart()">
                 Go To Cart!
             </button>
         </div>
@@ -24,6 +24,7 @@
 <script lang="ts">
     import {Component, Vue} from "vue-property-decorator";
     import {client} from "@/services/shopify-client";
+    import {Action} from 'vuex-class';
     import ProductSlider from './../components/ProductSlider.vue'
 
     @Component({
@@ -35,16 +36,22 @@
     export default class GalleryItem extends Vue {
         public product: any = {};
 
+        @Action('addAction') private addProduct!: Function;
+
         created() {
             this.fetchProduct();
         }
 
         buy() {
-            console.log(this.product);
-        }
+          this.addProduct(this.product);
+         }
 
-        gotoCart() {
-
+        cart() {
+            this
+                .$router
+                .push({
+                    name: 'cart',
+                })
         }
 
         fetchProduct() {
