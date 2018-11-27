@@ -1,7 +1,7 @@
 <template>
   <section>
     <h2>{{info.title}}</h2>
-    <p>{{info.description}}</p>
+    <p class="description">{{info.description}}</p>
     <img class="section-img" v-bind:src="info.image">
     <p>{{info.price}}</p>
     <a href="#" class="info-link" @click="goToProduct()">Learn more...</a>
@@ -35,6 +35,13 @@ section {
     padding: 10px;
     margin: 0 auto;
     max-width: 250px;
+  }
+
+  > p.description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
 }
 </style>
