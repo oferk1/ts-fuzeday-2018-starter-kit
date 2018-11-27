@@ -31,7 +31,7 @@ a {
 /* styles */
 
 :root {
-  --blue: #34495e;
+  --blue: gray;
   --green: #e74c3c;
   --yellow: #c9c243;
   --orange: #ffa644;
@@ -106,4 +106,18 @@ p {
   .options-link {
     font-size: 1.4em;
   }
+}
+
+.label {
+  color: rgb(163, 152, 152);
+}
+
+th {
+  label {
+    font-weight: normal;
+  }
+} 
+
+.price-wrapper {
+  text-align: right;
 }
