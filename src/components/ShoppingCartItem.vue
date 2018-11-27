@@ -71,7 +71,7 @@ export default class ShoppingCartItem extends Vue {
                 width: 75%;
                 display: inline-block;
                 &--content {
-                    padding-left: 20px;
+                    padding: 0 20px;
                     width: calc(75% - 90px);
                     float: left;
                 }
