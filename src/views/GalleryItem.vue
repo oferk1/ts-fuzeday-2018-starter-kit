@@ -1,3 +1,4 @@
+<script src="../store.ts"></script>
 <template>
     <div class="product" v-if="product">
         <div class="product-slider">
@@ -30,6 +31,7 @@
             'product-slider': ProductSlider
         }
     })
+
     export default class GalleryItem extends Vue {
         public product: any = {};
 
