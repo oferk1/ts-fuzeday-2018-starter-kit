@@ -1,9 +1,9 @@
 <template>
   <div class="product">
     <img v-bind:src="info.image">
-    <h3>{{info.title}}</h3>
-    <h4>{{info.description}}</h4>
-    <h4>{{info.price}}</h4>
+    <h3 class="title">{{info.title}}</h3>
+    <h4 class="description">{{info.description}}</h4>
+    <h4 class="price">{{info.price}}</h4>
   </div>
 </template>
 
@@ -19,11 +19,12 @@ export default class Product extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .product {
-  border: solid 1px blue;
+  border: solid 1px;
+  width: 250px;
   margin: 5px;
 
   > img {
-    max-width: 250px;
+    width: 250px;
   }
 }
 </style>
