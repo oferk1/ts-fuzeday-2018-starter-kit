@@ -11,6 +11,10 @@ export default new Vuex.Store({
     mutations: {
         fetchAction(state, payload) {
             state.products = payload;
+        },
+        addAction(state, product) {
+          state.products.push(product)
+          localStorage.setItem('products', JSON.stringify(state.products))
         }
     },
     actions: {
@@ -19,6 +23,10 @@ export default new Vuex.Store({
                 localStorage.setItem('products', JSON.stringify(products))
             }
             commit('fetchAction', JSON.parse(localStorage.getItem('products') as string));
+        },
+        addAction({commit}, payload) {
+          commit('addAction', payload.product);
+          // commit('fetchAction', payload.product);
         }
     },
     getters: {
