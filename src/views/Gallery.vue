@@ -1,6 +1,9 @@
 <template>
-  <div class="gallery">
-    <Product v-for="product in products" :key="product.id" :info="product"/>
+  <div>
+    <button @click="nextPage()">Next</button>
+    <div class="gallery">
+      <Product v-for="product in products" :key="product.id" :info="product"/>
+    </div>
   </div>
 </template>
 
@@ -23,16 +26,28 @@ export default class Gallery extends Vue {
 
   created() {
     client.product.fetchAll().then(response => {
-      console.log(response);
-      this.products = response.map(product => {
-        return {
-          id: product.id,
-          title: product.title,
-          description: product.description,
-          price: product.variants[0].price,
-          image: product.images[0].src
-        };
-      });
+      this.response = response;
+      this.products = this.mapProduct(this.response);
+    });
+  }
+
+  nextPage() {
+    const length = this.response.length;
+    client.fetchNextPage(this.response[length - 1]).then(response => {
+      this.response = response.model;
+      this.products = this.mapProduct(this.response);
+    });
+  }
+
+  mapProduct(response) {
+    return response.map((res: any) => {
+      return {
+        id: res.id,
+        title: res.title,
+        description: res.description,
+        price: res.variants[0].price,
+        image: res.images[0].src
+      };
     });
   }
 }
