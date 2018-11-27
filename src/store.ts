@@ -25,7 +25,7 @@ export default new Vuex.Store({
             commit('fetchAction', JSON.parse(localStorage.getItem('products') as string));
         },
         addAction({commit}, payload) {
-          commit('addAction', payload.product);
+          commit('addAction', payload);
           // commit('fetchAction', payload.product);
         }
     },

@@ -33,7 +33,7 @@
         calculatePrice(): number {
             const {products = []} = this;
             const totalPrice = products.reduce((acc, product): number => {
-                return acc + parseFloat(product.variants[0].price)
+                return acc + parseFloat(product.variants && product.variants[0].price || 0)
             }, 0);
             return totalPrice;
         }

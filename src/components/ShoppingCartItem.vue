@@ -30,7 +30,7 @@
                     <img v-bind:src= "product.images[0].src" alt="product image" />
                     <span>
                         <div class="product-details--content">{{product.descriptionHtml}}</div>
-                        <div class="product-price--content">US ${{product.variants[0].price}} / piece</div>
+                        <div class="product-price--content">US ${{product.variants && product.variants[0].price}} / piece</div>
                         <div class="product-shipping--content">Delivery Time: 21 - 45 days</div>
                     </span>
                 </span>
