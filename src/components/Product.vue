@@ -13,12 +13,8 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component
 export default class Product extends Vue {
-<<<<<<< HEAD
 
   @Prop() private info!: any;
-=======
-  @Prop() private info: any;
->>>>>>> c941c6690d48ab0d18ac9ff281d82a1c403f5cc5
 
   goToProduct() {
     this.$router.push({ name: "item", params: { id: this.info.id } });
